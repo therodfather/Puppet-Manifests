@@ -18,27 +18,43 @@ include 'docker'
 Use the following formats to change the settings, examples:
 
 class { 'docker':
+
   version => '17.09.0~ce-0~debian',
+
 }
 
 class { 'docker':
+  
   docker_ee => true,
+  
   docker_ee_source_location => 'https://<docker_ee_repo_url>',
+  
   docker_ee_key_source => 'https://<docker_ee_key_source_url>',
+  
   docker_ee_key_id => '<key id>',
+
 }
   
 class { 'docker':
+  
   use_upstream_package_source => false,
+  
   repo_opt => '',
+
 }
 
 class { 'docker':
+  
   manage_package              => true,
+  
   use_upstream_package_source => false,
+  
   package_engine_name         => 'docker-engine'
+  
   package_source_location     => 'https://get.docker.com/rpm/1.7.0/centos-6/RPMS/x86_64/docker-engine-1.7.0-1.el6.x86_64.rpm',
+  
   prerequired_packages        => [ 'glibc.i686', 'glibc.x86_64', 'sqlite.i686', 'sqlite.x86_64', 'device-mapper', 'device-mapper-libs', 'device-mapper-event-libs', 'device-mapper-event' ]
+
 }
 
 # Install images
@@ -50,7 +66,9 @@ docker::image { 'nextcloud': }
 The code above is equivalent to running the docker pull nextcloud command.
 
 docker::image { 'ubuntu':
+  
   image_tag => 'precise'
+
 }
 
 # Run containers
