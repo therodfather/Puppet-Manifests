@@ -58,8 +58,11 @@ docker::image { 'ubuntu':
 To run a container, use the following formats, examples:
 
 docker::run { 'helloworld':
+  
   image   => 'base',
+  
   command => '/bin/sh -c "while true; do echo hello world; sleep 1; done"',
+
 }
 
 This is equivalent to running the docker run -d base /bin/sh -c "while true; do echo hello world; sleep 1; done" command to launch a Docker container managed by the local init system.
